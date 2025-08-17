@@ -1,6 +1,6 @@
 # jp-pref-icons
 
-Generate beautiful icon images for Japanese prefectures with official government data. This tool automatically downloads the latest boundary data from official sources and creates high-quality PNG icons with optional SVG output.
+Generate beautiful icon images for Japanese prefectures with Japanese prefecture boundary data. This tool automatically downloads the latest boundary data and creates high-quality PNG icons with optional SVG output.
 
 [![npm version](https://badge.fury.io/js/jp-pref-icons.svg)](https://www.npmjs.com/package/jp-pref-icons)
 [![GitHub Release](https://img.shields.io/github/v/release/champierre/jp-pref-icons)](https://github.com/champierre/jp-pref-icons/releases)
@@ -9,7 +9,7 @@ Generate beautiful icon images for Japanese prefectures with official government
 
 ## Features
 
-- 🗾 **Official Data**: Automatically downloads prefecture boundaries from national land information sources
+- 🗾 **Prefecture Data**: Automatically downloads prefecture boundaries from data sources
 - 🎨 **Customizable**: Adjustable colors, sizes, and border styles
 - 🌍 **Smart Filtering**: Tokyo shows mainland only (excludes distant islands for better visibility)
 - 🔤 **Flexible Text**: Show or hide prefecture names on icons
@@ -77,7 +77,7 @@ npm install jp-pref-icons
 ### Using NPX (No installation required)
 
 ```bash
-# Generate all prefectures (downloads official data automatically)
+# Generate all prefectures (downloads data automatically)
 npx jp-pref-icons
 
 # Generate specific prefecture
@@ -93,7 +93,7 @@ npx jp-pref-icons --prefecture "東京都" --lw 0.5 --face "#0E7A6F" --size 2048
 ### Using Local Installation
 
 ```bash
-# Generate all prefectures (downloads official data automatically)
+# Generate all prefectures (downloads data automatically)
 node bin/cli.js
 
 # Generate specific prefecture
@@ -167,7 +167,7 @@ const generator = new PrefectureIconGenerator({
   targetPrefectures: '東京都,大阪府' // Specific prefectures
 });
 
-// Generate icons (downloads official data automatically)
+// Generate icons (downloads data automatically)
 generator.generate()
   .then(() => console.log('Icons generated successfully!'))
   .catch(err => console.error('Error:', err));
@@ -201,12 +201,12 @@ Icons are saved with the following naming convention:
 
 ## Data Sources
 
-The tool automatically downloads official Japanese prefecture boundary data from:
+The tool automatically downloads Japanese prefecture boundary data from:
 
-- **Primary**: [`dataofjapan/land`](https://github.com/dataofjapan/land) repository (based on 国土地理院 data)
+- **Primary**: [`dataofjapan/land`](https://github.com/dataofjapan/land) repository (based on 国土地理院 地球地図日本 http://www.gsi.go.jp/kankyochiri/gm_jpn.html data)
 - **Fallback**: [`smartnews-smri/japan-topography`](https://github.com/smartnews-smri/japan-topography) (alternative high-quality source)
 
-Data is processed in memory without local caching, ensuring always up-to-date official boundary information.
+Data is processed in memory without local caching, ensuring always up-to-date boundary information.
 
 ## Special Features
 
@@ -266,4 +266,4 @@ MIT
 
 ## Credits
 
-Built with official Japanese government boundary data from the Geospatial Information Authority of Japan (国土地理院).
+Built with Japanese prefecture boundary data from 国土地理院 地球地図日本 (Global Map Japan) http://www.gsi.go.jp/kankyochiri/gm_jpn.html.

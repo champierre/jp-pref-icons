@@ -1,6 +1,6 @@
 # jp-pref-icons
 
-日本の都道府県のアイコン画像を、公式の政府データを使用して生成するツールです。国土地理院などの公式ソースから最新の境界データを自動的にダウンロードし、高品質なPNGアイコンを作成できます。
+日本の都道府県のアイコン画像を、日本の都道府県境界データを使用して生成するツールです。データソースから最新の境界データを自動的にダウンロードし、高品質なPNGアイコンを作成できます。
 
 [![npm version](https://badge.fury.io/js/jp-pref-icons.svg)](https://www.npmjs.com/package/jp-pref-icons)
 [![GitHub Release](https://img.shields.io/github/v/release/champierre/jp-pref-icons)](https://github.com/champierre/jp-pref-icons/releases)
@@ -9,7 +9,7 @@
 
 ## 特徴
 
-- 🗾 **公式データ**: 国土地理院のデータに基づく都道府県境界の自動ダウンロード
+- 🗾 **都道府県データ**: データソースからの都道府県境界の自動ダウンロード
 - 🎨 **カスタマイズ可能**: 色、サイズ、境界線スタイルの調整が可能
 - 🌍 **スマートフィルタリング**: 東京都は本土のみ表示（離島を除外して視認性を向上）
 - 🔤 **柔軟なテキスト**: 都道府県名の表示・非表示を選択可能
@@ -201,12 +201,12 @@ generator.generate('custom-prefectures.geojson')
 
 ## データソース
 
-ツールは以下の公式日本の都道府県境界データを自動的にダウンロードします：
+ツールは以下の日本の都道府県境界データを自動的にダウンロードします：
 
-- **メイン**: [`dataofjapan/land`](https://github.com/dataofjapan/land) リポジトリ（国土地理院データに基づく）
+- **メイン**: [`dataofjapan/land`](https://github.com/dataofjapan/land) リポジトリ（国土地理院 地球地図日本 http://www.gsi.go.jp/kankyochiri/gm_jpn.html データに基づく）
 - **フォールバック**: [`smartnews-smri/japan-topography`](https://github.com/smartnews-smri/japan-topography)（代替高品質ソース）
 
-データはメモリ内で処理され、ローカルキャッシュは作成されないため、常に最新の公式境界情報を確保します。
+データはメモリ内で処理され、ローカルキャッシュは作成されないため、常に最新の境界情報を確保します。
 
 ## 特別な機能
 
@@ -266,4 +266,4 @@ MIT
 
 ## クレジット
 
-国土地理院の公式日本政府境界データを使用して構築されています。
+国土地理院 地球地図日本 http://www.gsi.go.jp/kankyochiri/gm_jpn.html の日本の都道府県境界データを使用して構築されています。

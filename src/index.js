@@ -540,13 +540,13 @@ class PrefectureIconGenerator {
   }
 
   async ensureGeoJSONData() {
-    // Official source: dataofjapan/land repository (based on 国土地理院 data)
+    // Primary source: dataofjapan/land repository (based on 国土地理院 地球地図日本 data)
     const sourceUrl = 'https://raw.githubusercontent.com/dataofjapan/land/master/japan.geojson';
     
     try {
       return await this.downloadGeoJSONToMemory(sourceUrl);
     } catch (error) {
-      console.error('Failed to download official data:', error.message);
+      console.error('Failed to download data:', error.message);
       
       // Fallback to alternative source
       console.log('Trying alternative source...');
@@ -563,7 +563,7 @@ class PrefectureIconGenerator {
   async generate(geoJsonPath = null) {
     let data;
     
-    // If no path provided, download official data to memory
+    // If no path provided, download data to memory
     if (!geoJsonPath) {
       console.log('Loading GeoJSON data...');
       data = await this.ensureGeoJSONData();

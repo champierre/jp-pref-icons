@@ -1,7 +1,7 @@
 {
   "name": "jp-pref-icons",
   "version": "1.0.2",
-  "description": "Generate beautiful icon images for Japanese prefectures with official government data",
+  "description": "Generate beautiful icon images for Japanese prefectures with Japanese prefecture boundary data",
   "main": "src/index.js",
   "bin": {
     "jp-pref-icons": "./bin/cli.js"

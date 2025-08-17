@@ -9,7 +9,7 @@ program
   .name('jp-pref-icons')
   .description('Generate icon images for Japanese prefectures from GeoJSON data')
   .version('1.0.0')
-  .option('--geojson <path>', 'Path to prefectures GeoJSON file (if not provided, downloads official data)')
+  .option('--geojson <path>', 'Path to prefectures GeoJSON file (if not provided, downloads data automatically)')
   .option('--out <dir>', 'Output directory', path.join(process.cwd(), 'icons'))
   .option('--size <number>', 'Icon size in pixels (square)', parseInt, 256)
   .option('--lw <number>', 'Line width', parseFloat, 0.5)
