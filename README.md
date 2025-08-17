@@ -1,4 +1,4 @@
-# japan-prefecture-icons
+# jp-pref-icons
 
 Generate beautiful icon images for Japanese prefectures with official government data. This tool automatically downloads the latest boundary data from official sources and creates high-quality PNG icons with optional SVG output.
 
@@ -20,22 +20,22 @@ Generate beautiful icon images for Japanese prefectures with official government
 
 ```bash
 # Generate all prefecture icons in current directory
-npx japan-prefecture-icons
+npx jp-pref-icons
 
 # Generate specific prefecture
-npx japan-prefecture-icons --prefecture "東京都"
+npx jp-pref-icons --prefecture "東京都"
 
 # Generate without text labels
-npx japan-prefecture-icons --prefecture "東京都" --hide-text
+npx jp-pref-icons --prefecture "東京都" --hide-text
 
 # Custom styling
-npx japan-prefecture-icons --prefecture "東京都" --lw 0.5 --face "#0E7A6F" --size 2048
+npx jp-pref-icons --prefecture "東京都" --lw 0.5 --face "#0E7A6F" --size 2048
 ```
 
 ### Local Installation
 
 ```bash
-npm install japan-prefecture-icons
+npm install jp-pref-icons
 ```
 
 ## Quick Start
@@ -44,16 +44,16 @@ npm install japan-prefecture-icons
 
 ```bash
 # Generate all prefectures (downloads official data automatically)
-npx japan-prefecture-icons
+npx jp-pref-icons
 
 # Generate specific prefecture
-npx japan-prefecture-icons --prefecture "東京都"
+npx jp-pref-icons --prefecture "東京都"
 
 # Generate without text labels  
-npx japan-prefecture-icons --prefecture "東京都" --hide-text
+npx jp-pref-icons --prefecture "東京都" --hide-text
 
 # Custom styling
-npx japan-prefecture-icons --prefecture "東京都" --lw 0.5 --face "#0E7A6F" --size 2048
+npx jp-pref-icons --prefecture "東京都" --lw 0.5 --face "#0E7A6F" --size 2048
 ```
 
 ### Using Local Installation
@@ -78,42 +78,42 @@ node bin/cli.js --prefecture "東京都" --lw 0.5 --face "#0E7A6F" --size 2048
 
 ```bash
 # Generate all 47 prefectures
-npx japan-prefecture-icons
+npx jp-pref-icons
 
 # Use custom GeoJSON file
-npx japan-prefecture-icons --geojson custom-prefectures.geojson
+npx jp-pref-icons --geojson custom-prefectures.geojson
 ```
 
 ### Generate Specific Prefectures
 
 ```bash
 # Single prefecture by name
-npx japan-prefecture-icons --prefecture "東京都"
+npx jp-pref-icons --prefecture "東京都"
 
 # Multiple prefectures by name
-npx japan-prefecture-icons --prefecture "東京都,大阪府,神奈川県"
+npx jp-pref-icons --prefecture "東京都,大阪府,神奈川県"
 
 # By prefecture codes
-npx japan-prefecture-icons --prefecture "13,27,14"
+npx jp-pref-icons --prefecture "13,27,14"
 
 # Mixed names and codes
-npx japan-prefecture-icons --prefecture "13,大阪府,Tokyo"
+npx jp-pref-icons --prefecture "13,大阪府,Tokyo"
 ```
 
 ### Styling Options
 
 ```bash
 # Thin borders
-npx japan-prefecture-icons --prefecture "東京都" --lw 0.5
+npx jp-pref-icons --prefecture "東京都" --lw 0.5
 
 # No text labels
-npx japan-prefecture-icons --prefecture "東京都" --hide-text
+npx jp-pref-icons --prefecture "東京都" --hide-text
 
 # Custom colors
-npx japan-prefecture-icons --prefecture "東京都" --face "#2E8B57" --edge "#1C5F3F" --text "#FFFFFF"
+npx jp-pref-icons --prefecture "東京都" --face "#2E8B57" --edge "#1C5F3F" --text "#FFFFFF"
 
 # Large size with SVG
-npx japan-prefecture-icons --prefecture "東京都" --size 2048 --svg
+npx jp-pref-icons --prefecture "東京都" --size 2048 --svg
 ```
 
 ### Programmatic Usage
@@ -203,17 +203,17 @@ Standard JIS prefecture codes (1-47):
 
 ```bash
 # Clone repository
-git clone https://github.com/champierre/japan-prefecture-icons.git
-cd japan-prefecture-icons
+git clone https://github.com/champierre/jp-pref-icons.git
+cd jp-pref-icons
 
 # Install dependencies
 npm install
 
 # Generate icons for testing
-npx japan-prefecture-icons --prefecture "東京都" --lw 0.5
+npx jp-pref-icons --prefecture "東京都" --lw 0.5
 
 # Generate all prefectures
-npx japan-prefecture-icons
+npx jp-pref-icons
 ```
 
 ## License

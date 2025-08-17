@@ -6,7 +6,7 @@ const path = require('path');
 const fs = require('fs-extra');
 
 program
-  .name('japan-prefecture-icons')
+  .name('jp-pref-icons')
   .description('Generate icon images for Japanese prefectures from GeoJSON data')
   .version('1.0.0')
   .option('--geojson <path>', 'Path to prefectures GeoJSON file (if not provided, downloads official data)')

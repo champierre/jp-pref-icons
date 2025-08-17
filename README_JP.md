@@ -1,4 +1,4 @@
-# japan-prefecture-icons
+# jp-pref-icons
 
 日本の都道府県のアイコン画像を、公式の政府データを使用して生成するツールです。国土地理院などの公式ソースから最新の境界データを自動的にダウンロードし、高品質なPNGアイコンを作成できます。
 
@@ -18,22 +18,22 @@
 
 ```bash
 # 現在のディレクトリに全都道府県のアイコンを生成
-npx japan-prefecture-icons
+npx jp-pref-icons
 
 # 特定の都道府県を生成
-npx japan-prefecture-icons --prefecture "東京都"
+npx jp-pref-icons --prefecture "東京都"
 
 # テキストなしでアイコンを生成
-npx japan-prefecture-icons --prefecture "東京都" --hide-text
+npx jp-pref-icons --prefecture "東京都" --hide-text
 
 # カスタムスタイル
-npx japan-prefecture-icons --prefecture "東京都" --lw 0.5 --face "#0E7A6F" --size 2048
+npx jp-pref-icons --prefecture "東京都" --lw 0.5 --face "#0E7A6F" --size 2048
 ```
 
 ### ローカルインストール
 
 ```bash
-npm install japan-prefecture-icons
+npm install jp-pref-icons
 ```
 
 ## クイックスタート
@@ -42,16 +42,16 @@ npm install japan-prefecture-icons
 
 ```bash
 # 全都道府県を生成（公式データを自動ダウンロード）
-npx japan-prefecture-icons
+npx jp-pref-icons
 
 # 特定の都道府県を生成
-npx japan-prefecture-icons --prefecture "東京都"
+npx jp-pref-icons --prefecture "東京都"
 
 # テキストラベルなし
-npx japan-prefecture-icons --prefecture "東京都" --hide-text
+npx jp-pref-icons --prefecture "東京都" --hide-text
 
 # カスタムスタイル
-npx japan-prefecture-icons --prefecture "東京都" --lw 0.5 --face "#0E7A6F" --size 2048
+npx jp-pref-icons --prefecture "東京都" --lw 0.5 --face "#0E7A6F" --size 2048
 ```
 
 ### ローカルインストール使用
@@ -76,48 +76,48 @@ node bin/cli.js --prefecture "東京都" --lw 0.5 --face "#0E7A6F" --size 2048
 
 ```bash
 # 全47都道府県を生成
-npx japan-prefecture-icons
+npx jp-pref-icons
 
 # カスタムGeoJSONファイルを使用
-npx japan-prefecture-icons --geojson custom-prefectures.geojson
+npx jp-pref-icons --geojson custom-prefectures.geojson
 ```
 
 ### 特定の都道府県を生成
 
 ```bash
 # 都道府県名で指定
-npx japan-prefecture-icons --prefecture "東京都"
+npx jp-pref-icons --prefecture "東京都"
 
 # 複数の都道府県を指定
-npx japan-prefecture-icons --prefecture "東京都,大阪府,神奈川県"
+npx jp-pref-icons --prefecture "東京都,大阪府,神奈川県"
 
 # 都道府県コードで指定
-npx japan-prefecture-icons --prefecture "13,27,14"
+npx jp-pref-icons --prefecture "13,27,14"
 
 # 名前とコードの混在
-npx japan-prefecture-icons --prefecture "13,大阪府,Tokyo"
+npx jp-pref-icons --prefecture "13,大阪府,Tokyo"
 ```
 
 ### スタイリングオプション
 
 ```bash
 # 細い境界線
-npx japan-prefecture-icons --prefecture "東京都" --lw 0.5
+npx jp-pref-icons --prefecture "東京都" --lw 0.5
 
 # テキストラベルなし
-npx japan-prefecture-icons --prefecture "東京都" --hide-text
+npx jp-pref-icons --prefecture "東京都" --hide-text
 
 # カスタムカラー
-npx japan-prefecture-icons --prefecture "東京都" --face "#2E8B57" --edge "#1C5F3F" --text "#FFFFFF"
+npx jp-pref-icons --prefecture "東京都" --face "#2E8B57" --edge "#1C5F3F" --text "#FFFFFF"
 
 # 大きなサイズでSVGも生成
-npx japan-prefecture-icons --prefecture "東京都" --size 2048 --svg
+npx jp-pref-icons --prefecture "東京都" --size 2048 --svg
 ```
 
 ### プログラマティック使用
 
 ```javascript
-const PrefectureIconGenerator = require('japan-prefecture-icons');
+const PrefectureIconGenerator = require('jp-pref-icons');
 
 const generator = new PrefectureIconGenerator({
   size: 1024,                    // アイコンサイズ（ピクセル）
@@ -201,17 +201,17 @@ generator.generate('custom-prefectures.geojson')
 
 ```bash
 # リポジトリをクローン
-git clone https://github.com/champierre/japan-prefecture-icons.git
-cd japan-prefecture-icons
+git clone https://github.com/champierre/jp-pref-icons.git
+cd jp-pref-icons
 
 # 依存関係をインストール
 npm install
 
 # テスト用にアイコンを生成
-npx japan-prefecture-icons --prefecture "東京都" --lw 0.5
+npx jp-pref-icons --prefecture "東京都" --lw 0.5
 
 # 全都道府県を生成
-npx japan-prefecture-icons
+npx jp-pref-icons
 ```
 
 ## ライセンス
