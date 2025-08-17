@@ -546,17 +546,7 @@ class PrefectureIconGenerator {
     try {
       return await this.downloadGeoJSONToMemory(sourceUrl);
     } catch (error) {
-      console.error('Failed to download data:', error.message);
-      
-      // Fallback to alternative source
-      console.log('Trying alternative source...');
-      const fallbackUrl = 'https://raw.githubusercontent.com/smartnews-smri/japan-topography/main/data/prefecture.geojson';
-      
-      try {
-        return await this.downloadGeoJSONToMemory(fallbackUrl);
-      } catch (fallbackError) {
-        throw new Error(`Failed to download GeoJSON data: ${fallbackError.message}`);
-      }
+      throw new Error(`Failed to download GeoJSON data: ${error.message}`);
     }
   }
 

@@ -203,8 +203,7 @@ generator.generate('custom-prefectures.geojson')
 
 ツールは以下の日本の都道府県境界データを自動的にダウンロードします：
 
-- **メイン**: [`dataofjapan/land`](https://github.com/dataofjapan/land) リポジトリ（国土地理院 地球地図日本 http://www.gsi.go.jp/kankyochiri/gm_jpn.html データに基づく）
-- **フォールバック**: [`smartnews-smri/japan-topography`](https://github.com/smartnews-smri/japan-topography)（代替高品質ソース）
+- [`dataofjapan/land`](https://github.com/dataofjapan/land) リポジトリ（国土地理院 地球地図日本 http://www.gsi.go.jp/kankyochiri/gm_jpn.html データに基づく）
 
 データはメモリ内で処理され、ローカルキャッシュは作成されないため、常に最新の境界情報を確保します。
 
