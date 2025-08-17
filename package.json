@@ -1,6 +1,6 @@
 {
   "name": "jp-pref-icons",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Generate beautiful icon images for Japanese prefectures with official government data",
   "main": "src/index.js",
   "bin": {
