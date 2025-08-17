@@ -14,6 +14,7 @@ class PrefectureIconGenerator {
       faceColor: options.faceColor || '#0E7A6F',
       edgeColor: options.edgeColor || '#0A5A52',
       textColor: options.textColor || '#FFFFFF',
+      textSize: options.textSize || 0.12,
       outputDir: options.outputDir || 'icons',
       generateSVG: options.generateSVG || false,
       padding: options.padding || 0.07,
@@ -382,7 +383,7 @@ class PrefectureIconGenerator {
       ctx.shadowBlur = 0;
       
       // Set text properties
-      ctx.font = `bold ${size * 0.048}px sans-serif`;
+      ctx.font = `bold ${size * this.options.textSize}px sans-serif`;
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
       
@@ -444,7 +445,7 @@ class PrefectureIconGenerator {
 
     // Generate text element only if showText is enabled
     const textElement = this.options.showText ? `
-  <text x="${cx}" y="${cy}" fill="${this.options.textColor}" stroke="${this.options.edgeColor}" stroke-width="${size * 0.002}" font-size="${size * 0.048}" font-weight="bold" text-anchor="middle" dominant-baseline="middle" font-family="sans-serif">
+  <text x="${cx}" y="${cy}" fill="${this.options.textColor}" stroke="${this.options.edgeColor}" stroke-width="${size * 0.002}" font-size="${size * this.options.textSize}" font-weight="bold" text-anchor="middle" dominant-baseline="middle" font-family="sans-serif">
     ${prefName}
   </text>` : '';
 

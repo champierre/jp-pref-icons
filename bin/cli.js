@@ -16,6 +16,7 @@ program
   .option('--face <color>', 'Face color', '#0E7A6F')
   .option('--edge <color>', 'Edge color', '#0A5A52')
   .option('--text <color>', 'Text color', '#FFFFFF')
+  .option('--text-size <number>', 'Text size multiplier (default: 0.12)', parseFloat, 0.12)
   .option('--svg', 'Also generate SVG files')
   .option('--prefecture <names>', 'Generate only specified prefectures (comma-separated names or codes)')
   .option('--hide-text', 'Generate icons without prefecture name text')
@@ -44,6 +45,7 @@ async function main() {
       faceColor: options.face,
       edgeColor: options.edge,
       textColor: options.text,
+      textSize: options.textSize,
       outputDir: options.out,
       generateSVG: options.svg,
       targetPrefectures: options.prefecture,
