@@ -202,6 +202,90 @@ class PrefectureIconGenerator {
     }
   }
 
+  filterKagoshimaMainland(features) {
+    if (features.length === 0) return features;
+    
+    // If there's only one feature, it's likely a MultiPolygon containing all Kagoshima parts
+    if (features.length === 1) {
+      const feature = features[0];
+      if (feature.geometry.type === 'MultiPolygon') {
+        // Extract individual polygons from MultiPolygon
+        const polygons = feature.geometry.coordinates.map((coords, index) => ({
+          type: 'Feature',
+          properties: { ...feature.properties, polygon_index: index },
+          geometry: {
+            type: 'Polygon',
+            coordinates: coords
+          }
+        }));
+        
+        return this.filterKagoshimaMainlandPolygons(polygons);
+      }
+    }
+    
+    // If multiple features, process them directly
+    return this.filterKagoshimaMainlandPolygons(features);
+  }
+  
+  filterKagoshimaMainlandPolygons(polygons) {
+    // Calculate area and centroid for each polygon
+    const polygonsWithInfo = polygons.map((polygon, index) => {
+      const area = turf.area(polygon);
+      const centroid = turf.centroid(polygon);
+      const [longitude, latitude] = centroid.geometry.coordinates;
+      return { polygon, area, centroid, longitude, latitude, index };
+    });
+
+    // Sort by area (largest first)
+    polygonsWithInfo.sort((a, b) => b.area - a.area);
+
+    console.log(`  Analyzing ${polygonsWithInfo.length} Kagoshima polygons:`);
+    polygonsWithInfo.slice(0, 10).forEach((p, i) => {
+      console.log(`    Polygon ${i}: lon=${p.longitude.toFixed(3)}, lat=${p.latitude.toFixed(3)}, area=${p.area.toFixed(0)}`);
+    });
+
+    // Kagoshima mainland bounds (Satsuma and Osumi peninsulas):
+    // Longitude: 129.4° - 131.5°E (excluding distant islands like Amami, Yakushima, Tanegashima)
+    // Latitude: 30.8° - 32.2°N (main Kyushu part of Kagoshima)
+    const mainlandBounds = {
+      minLon: 129.4,
+      maxLon: 131.5,
+      minLat: 30.8,
+      maxLat: 32.2
+    };
+
+    // Filter polygons within mainland bounds
+    const mainlandPolygons = polygonsWithInfo.filter(({ longitude, latitude }) => {
+      return longitude >= mainlandBounds.minLon && 
+             longitude <= mainlandBounds.maxLon &&
+             latitude >= mainlandBounds.minLat && 
+             latitude <= mainlandBounds.maxLat;
+    });
+
+    if (mainlandPolygons.length === 0) {
+      console.log('  Warning: No mainland polygons found, using largest polygon');
+      return [polygonsWithInfo[0].polygon];
+    }
+
+    console.log(`  Kagoshima mainland filter: ${polygonsWithInfo.length} -> ${mainlandPolygons.length} polygons (excluded islands)`);
+    
+    // Create a new MultiPolygon feature with only mainland polygons
+    if (mainlandPolygons.length === 1) {
+      return [mainlandPolygons[0].polygon];
+    } else {
+      // Combine multiple mainland polygons into one MultiPolygon feature
+      const combinedFeature = {
+        type: 'Feature',
+        properties: polygons[0].properties,
+        geometry: {
+          type: 'MultiPolygon',
+          coordinates: mainlandPolygons.map(p => p.polygon.geometry.coordinates)
+        }
+      };
+      return [combinedFeature];
+    }
+  }
+
 
   drawPolygonPath(ctx, coordinates, extent, size) {
     // Draw polygon path without beginPath/closePath
@@ -227,11 +311,14 @@ class PrefectureIconGenerator {
     const canvas = createCanvas(size, size);
     const ctx = canvas.getContext('2d');
 
-    // Special handling for Tokyo (code 13) - exclude islands
+    // Special handling for Tokyo (code 13) and Kagoshima (code 46) - exclude islands
     let featuresToProcess = features;
     if (prefCode === 13) {
       featuresToProcess = this.filterTokyoMainland(features);
       console.log(`  Filtered Tokyo: ${features.length} features -> ${featuresToProcess.length} mainland features`);
+    } else if (prefCode === 46) {
+      featuresToProcess = this.filterKagoshimaMainland(features);
+      console.log(`  Filtered Kagoshima: ${features.length} features -> ${featuresToProcess.length} mainland features`);
     }
 
     // Combine all geometries
@@ -295,17 +382,17 @@ class PrefectureIconGenerator {
       ctx.shadowBlur = 0;
       
       // Set text properties
-      ctx.fillStyle = this.options.textColor;
       ctx.font = `bold ${size * 0.048}px sans-serif`;
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
       
-      // Add text shadow for better visibility
-      ctx.shadowColor = this.options.edgeColor;
-      ctx.shadowBlur = 4;
-      ctx.shadowOffsetX = 1;
-      ctx.shadowOffsetY = 1;
+      // Draw text stroke (outline) first
+      ctx.strokeStyle = this.options.edgeColor;
+      ctx.lineWidth = size * 0.015; // Outline thickness relative to icon size (increased for better visibility)
+      ctx.strokeText(prefName, cx, cy);
       
+      // Draw text fill on top of stroke
+      ctx.fillStyle = this.options.textColor;
       ctx.fillText(prefName, cx, cy);
     }
 
@@ -357,7 +444,7 @@ class PrefectureIconGenerator {
 
     // Generate text element only if showText is enabled
     const textElement = this.options.showText ? `
-  <text x="${cx}" y="${cy}" fill="${this.options.textColor}" font-size="${size * 0.048}" font-weight="bold" text-anchor="middle" dominant-baseline="middle" font-family="sans-serif">
+  <text x="${cx}" y="${cy}" fill="${this.options.textColor}" stroke="${this.options.edgeColor}" stroke-width="${size * 0.002}" font-size="${size * 0.048}" font-weight="bold" text-anchor="middle" dominant-baseline="middle" font-family="sans-serif">
     ${prefName}
   </text>` : '';
 

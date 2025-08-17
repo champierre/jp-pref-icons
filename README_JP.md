@@ -155,18 +155,51 @@ generator.generate('custom-prefectures.geojson')
 | `--svg` | SVGファイルも生成 | `false` |
 | `--prefecture <names>` | 指定した都道府県のみ生成 | 全都道府県 |
 | `--hide-text` | テキストラベルなしでアイコン生成 | `false` |
+| `-h, --help` | コマンドのヘルプを表示 | - |
+| `-V, --version` | バージョン番号を出力 | - |
 
 ## 出力形式
 
 アイコンは以下の命名規則で保存されます：
 - `{都道府県コード}_{ローマ字名}.png` (例: `13_Tokyo.png`, `27_Osaka.png`)
 
+## サンプルアイコン
+
+生成される都道府県アイコンの例：
+
+### デフォルトスタイル
+
+| 都道府県 | アイコン | 特徴 |
+|----------|----------|------|
+| 東京都 | ![東京都アイコン](https://raw.githubusercontent.com/champierre/jp-pref-icons/main/samples/13_Tokyo.png) | 本土フィルタリング（離島除外） |
+| 大阪府 | ![大阪府アイコン](https://raw.githubusercontent.com/champierre/jp-pref-icons/main/samples/27_Osaka.png) | コンパクトな都市型府県の形状 |
+| 北海道 | ![北海道アイコン](https://raw.githubusercontent.com/champierre/jp-pref-icons/main/samples/01_Hokkaido.png) | 日本最大の都道府県 |
+
+### テキストなしバージョン
+
+| 都道府県 | アイコン | コマンド |
+|----------|----------|----------|
+| 東京都 | ![東京都テキストなし](https://raw.githubusercontent.com/champierre/jp-pref-icons/main/samples/13_Tokyo_no_text.png) | `--prefecture "東京都" --hide-text` |
+
+### カスタムカラースキーム
+
+| 都道府県 | アイコン | コマンド |
+|----------|----------|----------|
+| 大阪府（赤） | ![大阪府赤](https://raw.githubusercontent.com/champierre/jp-pref-icons/main/samples/27_Osaka_red.png) | `--prefecture "大阪府" --face "#FF6B6B" --edge "#D63031"` |
+| 北海道（青） | ![北海道青](https://raw.githubusercontent.com/champierre/jp-pref-icons/main/samples/01_Hokkaido_blue.png) | `--prefecture "北海道" --face "#74B9FF" --edge "#0984E3"` |
+
+すべてのアイコンの特徴：
+- 細いテキスト縁取りによるクリーンでプロフェッショナルな外観
+- 汎用性の高い透明背景
+- カスタマイズ可能なカラースキームとテキストオプション
+- 高品質なアンチエイリアス処理
+
 ## データソース
 
 ツールは以下の公式日本の都道府県境界データを自動的にダウンロードします：
 
-- **メイン**: `dataofjapan/land` リポジトリ（国土地理院データに基づく）
-- **フォールバック**: `smartnews-smri/japan-topography`（代替高品質ソース）
+- **メイン**: [`dataofjapan/land`](https://github.com/dataofjapan/land) リポジトリ（国土地理院データに基づく）
+- **フォールバック**: [`smartnews-smri/japan-topography`](https://github.com/smartnews-smri/japan-topography)（代替高品質ソース）
 
 データはメモリ内で処理され、ローカルキャッシュは作成されないため、常に最新の公式境界情報を確保します。
 
@@ -175,6 +208,14 @@ generator.generate('custom-prefectures.geojson')
 ### 東京都の本土フィルタリング
 
 東京都には多くの離島（伊豆諸島、小笠原諸島）が含まれています。ツールは自動的にこれらを除外し、アイコンの視認性を向上させるために本土の東京エリアのみを表示します。
+
+### 鹿児島県の本土フィルタリング
+
+鹿児島県には多数の離島（種子島、屋久島、奄美諸島など）が含まれています。ツールは自動的にこれらを除外し、アイコンの視認性を向上させるために本土部分（薩摩半島・大隅半島）のみを表示します。
+
+### テキストの縁取り
+
+すべての都道府県名テキストには境界線色を使用した細い縁取りが含まれており、どんな背景でも最適な視認性を確保しつつ、クリーンな視覚的外観を維持します。
 
 ### 透明背景
 

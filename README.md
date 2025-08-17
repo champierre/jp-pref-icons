@@ -157,18 +157,51 @@ generator.generate('custom-prefectures.geojson')
 | `--svg` | Also generate SVG files | `false` |
 | `--prefecture <names>` | Generate only specified prefectures | All |
 | `--hide-text` | Generate icons without text labels | `false` |
+| `-h, --help` | Display help for command | - |
+| `-V, --version` | Output the version number | - |
 
 ## Output Format
 
 Icons are saved with the following naming convention:
 - `{prefecture_code}_{romanized_name}.png` (e.g., `13_Tokyo.png`, `27_Osaka.png`)
 
+## Sample Icons
+
+Here are some examples of generated prefecture icons:
+
+### Default Style
+
+| Prefecture | Icon | Features |
+|------------|------|----------|
+| Tokyo (東京都) | ![Tokyo Icon](https://raw.githubusercontent.com/champierre/jp-pref-icons/main/samples/13_Tokyo.png) | Mainland filtering (excludes distant islands) |
+| Osaka (大阪府) | ![Osaka Icon](https://raw.githubusercontent.com/champierre/jp-pref-icons/main/samples/27_Osaka.png) | Compact urban prefecture shape |
+| Hokkaido (北海道) | ![Hokkaido Icon](https://raw.githubusercontent.com/champierre/jp-pref-icons/main/samples/01_Hokkaido.png) | Japan's largest prefecture |
+
+### Text-Free Versions
+
+| Prefecture | Icon | Command |
+|------------|------|---------|
+| Tokyo | ![Tokyo No Text](https://raw.githubusercontent.com/champierre/jp-pref-icons/main/samples/13_Tokyo_no_text.png) | `--prefecture "東京都" --hide-text` |
+
+### Custom Color Schemes
+
+| Prefecture | Icon | Command |
+|------------|------|---------|
+| Osaka (Red) | ![Osaka Red](https://raw.githubusercontent.com/champierre/jp-pref-icons/main/samples/27_Osaka_red.png) | `--prefecture "大阪府" --face "#FF6B6B" --edge "#D63031"` |
+| Hokkaido (Blue) | ![Hokkaido Blue](https://raw.githubusercontent.com/champierre/jp-pref-icons/main/samples/01_Hokkaido_blue.png) | `--prefecture "北海道" --face "#74B9FF" --edge "#0984E3"` |
+
+All icons feature:
+- Clean, professional appearance with subtle text stroke outline
+- Transparent backgrounds for versatile use
+- Customizable color schemes and text options
+- High-quality anti-aliased rendering
+
 ## Data Sources
 
 The tool automatically downloads official Japanese prefecture boundary data from:
 
-- **Primary**: `dataofjapan/land` repository (based on 国土地理院 data)
-- **Fallback**: `smartnews-smri/japan-topography` (alternative high-quality source)
+- **Primary**: [`dataofjapan/land`](https://github.com/dataofjapan/land) repository (based on 国土地理院 data)
+- **Fallback**: [`smartnews-smri/japan-topography`](https://github.com/smartnews-smri/japan-topography) (alternative high-quality source)
 
 Data is processed in memory without local caching, ensuring always up-to-date official boundary information.
 
@@ -177,6 +210,14 @@ Data is processed in memory without local caching, ensuring always up-to-date of
 ### Tokyo Mainland Filtering
 
 Tokyo Prefecture includes many distant islands (Izu Islands, Ogasawara Islands). The tool automatically filters these out to show only the mainland Tokyo area for better icon visibility.
+
+### Kagoshima Mainland Filtering
+
+Kagoshima Prefecture includes numerous islands (Tanegashima, Yakushima, Amami Islands, etc.). The tool automatically filters these out to show only the mainland areas (Satsuma and Osumi peninsulas) for better icon visibility.
+
+### Text Stroke Outline
+
+All prefecture name text includes a subtle stroke outline using the border color, ensuring optimal readability against any background while maintaining clean visual appearance.
 
 ### Transparent Backgrounds
 
