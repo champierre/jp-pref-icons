@@ -2,6 +2,8 @@
 
 Generate beautiful icon images for Japanese prefectures with official government data. This tool automatically downloads the latest boundary data from official sources and creates high-quality PNG icons with optional SVG output.
 
+> 📖 **日本語ドキュメント**: [README_JP.md](README_JP.md)
+
 ## Features
 
 - 🗾 **Official Data**: Automatically downloads prefecture boundaries from national land information sources
