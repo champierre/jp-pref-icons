@@ -389,7 +389,7 @@ class PrefectureIconGenerator {
       
       // Draw text stroke (outline) first
       ctx.strokeStyle = this.options.edgeColor;
-      ctx.lineWidth = size * 0.03; // Outline thickness relative to icon size (increased for better visibility)
+      ctx.lineWidth = size * 0.06; // Outline thickness relative to icon size (increased for better visibility)
       ctx.strokeText(prefName, cx, cy);
       
       // Draw text fill on top of stroke
@@ -445,7 +445,7 @@ class PrefectureIconGenerator {
 
     // Generate text element only if showText is enabled
     const textElement = this.options.showText ? `
-  <text x="${cx}" y="${cy}" fill="${this.options.textColor}" stroke="${this.options.edgeColor}" stroke-width="${size * 0.004}" font-size="${size * this.options.textSize}" font-weight="bold" text-anchor="middle" dominant-baseline="middle" font-family="sans-serif">
+  <text x="${cx}" y="${cy}" fill="${this.options.textColor}" stroke="${this.options.edgeColor}" stroke-width="${size * 0.008}" font-size="${size * this.options.textSize}" font-weight="bold" text-anchor="middle" dominant-baseline="middle" font-family="sans-serif">
     ${prefName}
   </text>` : '';
 

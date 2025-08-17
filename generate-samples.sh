@@ -9,10 +9,6 @@ rm -f samples/*.png
 # Create samples directory if it doesn't exist
 mkdir -p samples
 
-# Generate default style icons
-echo "Generating default style icons..."
-node bin/cli.js --prefecture "北海道,東京都,大阪府" --size 256 --out samples
-
 # Generate text-free version (Tokyo)
 echo "Generating text-free version..."
 node bin/cli.js --prefecture "東京都" --size 256 --out samples --hide-text
@@ -29,7 +25,8 @@ mv samples/01_Hokkaido.png samples/01_Hokkaido_blue.png
 node bin/cli.js --prefecture "大阪府" --size 256 --out samples --face "#e74c3c" --edge "#c0392b"
 mv samples/27_Osaka.png samples/27_Osaka_red.png
 
-# Generate default icons again (since they were overwritten)
+# Generate remaining default icons
+echo "Generating default style icons..."
 node bin/cli.js --prefecture "北海道,東京都,大阪府" --size 256 --out samples
 
 echo "Sample icons generated successfully!"
