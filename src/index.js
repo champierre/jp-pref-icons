@@ -9,7 +9,7 @@ const https = require('https');
 class PrefectureIconGenerator {
   constructor(options = {}) {
     this.options = {
-      size: options.size || 1024,
+      size: options.size || 256,
       lineWidth: options.lineWidth || 0.5,
       faceColor: options.faceColor || '#0E7A6F',
       edgeColor: options.edgeColor || '#0A5A52',
