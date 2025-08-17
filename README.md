@@ -153,7 +153,7 @@ npx jp-pref-icons --prefecture "東京都" --size 2048 --svg
 const PrefectureIconGenerator = require('./src/index');
 
 const generator = new PrefectureIconGenerator({
-  size: 512,                     // Icon size in pixels
+  size: 256,                     // Icon size in pixels
   lineWidth: 0.5,               // Border line width
   faceColor: '#0E7A6F',         // Fill color
   edgeColor: '#0A5A52',         // Border color
@@ -180,7 +180,7 @@ generator.generate('custom-prefectures.geojson')
 |--------|-------------|---------|
 | `--geojson <path>` | Path to custom GeoJSON file (optional) | Auto-download |
 | `--out <dir>` | Output directory | `icons` |
-| `--size <number>` | Icon size in pixels (square) | `512` |
+| `--size <number>` | Icon size in pixels (square) | `256` |
 | `--lw <number>` | Line width | `0.5` |
 | `--face <color>` | Face/fill color | `#0E7A6F` |
 | `--edge <color>` | Edge/border color | `#0A5A52` |
