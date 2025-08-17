@@ -14,6 +14,37 @@ Generate beautiful icon images for Japanese prefectures with official government
 - 🎯 **Selective Generation**: Generate specific prefectures by name or code
 - 🖥️ **Easy CLI**: Simple command-line interface
 
+## Sample Icons
+
+Here are some examples of generated prefecture icons:
+
+### Default Style
+
+| Prefecture | Icon | Features |
+|------------|------|----------|
+| Tokyo (東京都) | ![Tokyo Icon](https://raw.githubusercontent.com/champierre/jp-pref-icons/main/samples/13_Tokyo.png) | Mainland filtering (excludes distant islands) |
+| Osaka (大阪府) | ![Osaka Icon](https://raw.githubusercontent.com/champierre/jp-pref-icons/main/samples/27_Osaka.png) | Compact urban prefecture shape |
+| Hokkaido (北海道) | ![Hokkaido Icon](https://raw.githubusercontent.com/champierre/jp-pref-icons/main/samples/01_Hokkaido.png) | Japan's largest prefecture |
+
+### Text-Free Versions
+
+| Prefecture | Icon | Command |
+|------------|------|---------|
+| Tokyo | ![Tokyo No Text](https://raw.githubusercontent.com/champierre/jp-pref-icons/main/samples/13_Tokyo_no_text.png) | `--prefecture "東京都" --hide-text` |
+
+### Custom Color Schemes
+
+| Prefecture | Icon | Command |
+|------------|------|---------|
+| Osaka (Red) | ![Osaka Red](https://raw.githubusercontent.com/champierre/jp-pref-icons/main/samples/27_Osaka_red.png) | `--prefecture "大阪府" --face "#FF6B6B" --edge "#D63031"` |
+| Hokkaido (Blue) | ![Hokkaido Blue](https://raw.githubusercontent.com/champierre/jp-pref-icons/main/samples/01_Hokkaido_blue.png) | `--prefecture "北海道" --face "#74B9FF" --edge "#0984E3"` |
+
+All icons feature:
+- Clean, professional appearance with subtle text stroke outline
+- Transparent backgrounds for versatile use
+- Customizable color schemes and text options
+- High-quality anti-aliased rendering
+
 ## Installation
 
 ### NPX (Recommended - No installation required)
@@ -122,7 +153,7 @@ npx jp-pref-icons --prefecture "東京都" --size 2048 --svg
 const PrefectureIconGenerator = require('./src/index');
 
 const generator = new PrefectureIconGenerator({
-  size: 1024,                    // Icon size in pixels
+  size: 512,                     // Icon size in pixels
   lineWidth: 0.5,               // Border line width
   faceColor: '#0E7A6F',         // Fill color
   edgeColor: '#0A5A52',         // Border color
@@ -149,7 +180,7 @@ generator.generate('custom-prefectures.geojson')
 |--------|-------------|---------|
 | `--geojson <path>` | Path to custom GeoJSON file (optional) | Auto-download |
 | `--out <dir>` | Output directory | `icons` |
-| `--size <number>` | Icon size in pixels (square) | `1024` |
+| `--size <number>` | Icon size in pixels (square) | `512` |
 | `--lw <number>` | Line width | `0.5` |
 | `--face <color>` | Face/fill color | `#0E7A6F` |
 | `--edge <color>` | Edge/border color | `#0A5A52` |
@@ -164,37 +195,6 @@ generator.generate('custom-prefectures.geojson')
 
 Icons are saved with the following naming convention:
 - `{prefecture_code}_{romanized_name}.png` (e.g., `13_Tokyo.png`, `27_Osaka.png`)
-
-## Sample Icons
-
-Here are some examples of generated prefecture icons:
-
-### Default Style
-
-| Prefecture | Icon | Features |
-|------------|------|----------|
-| Tokyo (東京都) | ![Tokyo Icon](https://raw.githubusercontent.com/champierre/jp-pref-icons/main/samples/13_Tokyo.png) | Mainland filtering (excludes distant islands) |
-| Osaka (大阪府) | ![Osaka Icon](https://raw.githubusercontent.com/champierre/jp-pref-icons/main/samples/27_Osaka.png) | Compact urban prefecture shape |
-| Hokkaido (北海道) | ![Hokkaido Icon](https://raw.githubusercontent.com/champierre/jp-pref-icons/main/samples/01_Hokkaido.png) | Japan's largest prefecture |
-
-### Text-Free Versions
-
-| Prefecture | Icon | Command |
-|------------|------|---------|
-| Tokyo | ![Tokyo No Text](https://raw.githubusercontent.com/champierre/jp-pref-icons/main/samples/13_Tokyo_no_text.png) | `--prefecture "東京都" --hide-text` |
-
-### Custom Color Schemes
-
-| Prefecture | Icon | Command |
-|------------|------|---------|
-| Osaka (Red) | ![Osaka Red](https://raw.githubusercontent.com/champierre/jp-pref-icons/main/samples/27_Osaka_red.png) | `--prefecture "大阪府" --face "#FF6B6B" --edge "#D63031"` |
-| Hokkaido (Blue) | ![Hokkaido Blue](https://raw.githubusercontent.com/champierre/jp-pref-icons/main/samples/01_Hokkaido_blue.png) | `--prefecture "北海道" --face "#74B9FF" --edge "#0984E3"` |
-
-All icons feature:
-- Clean, professional appearance with subtle text stroke outline
-- Transparent backgrounds for versatile use
-- Customizable color schemes and text options
-- High-quality anti-aliased rendering
 
 ## Data Sources
 
