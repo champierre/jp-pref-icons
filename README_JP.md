@@ -148,7 +148,7 @@ generator.generate('custom-prefectures.geojson')
 | `--geojson <path>` | カスタムGeoJSONファイルのパス（オプション） | 自動ダウンロード |
 | `--out <dir>` | 出力ディレクトリ | `icons` |
 | `--size <number>` | アイコンサイズ（ピクセル、正方形） | `1024` |
-| `--lw <number>` | 線の太さ | `2.0` |
+| `--lw <number>` | 線の太さ | `0.5` |
 | `--face <color>` | 塗りつぶし色 | `#0E7A6F` |
 | `--edge <color>` | 境界線色 | `#0A5A52` |
 | `--text <color>` | テキスト色 | `#FFFFFF` |

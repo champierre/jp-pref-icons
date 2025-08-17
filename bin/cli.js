@@ -12,7 +12,7 @@ program
   .option('--geojson <path>', 'Path to prefectures GeoJSON file (if not provided, downloads official data)')
   .option('--out <dir>', 'Output directory', path.join(process.cwd(), 'icons'))
   .option('--size <number>', 'Icon size in pixels (square)', parseInt, 1024)
-  .option('--lw <number>', 'Line width', parseFloat, 2.0)
+  .option('--lw <number>', 'Line width', parseFloat, 0.5)
   .option('--face <color>', 'Face color', '#0E7A6F')
   .option('--edge <color>', 'Edge color', '#0A5A52')
   .option('--text <color>', 'Text color', '#FFFFFF')

@@ -150,7 +150,7 @@ generator.generate('custom-prefectures.geojson')
 | `--geojson <path>` | Path to custom GeoJSON file (optional) | Auto-download |
 | `--out <dir>` | Output directory | `icons` |
 | `--size <number>` | Icon size in pixels (square) | `1024` |
-| `--lw <number>` | Line width | `2.0` |
+| `--lw <number>` | Line width | `0.5` |
 | `--face <color>` | Face/fill color | `#0E7A6F` |
 | `--edge <color>` | Edge/border color | `#0A5A52` |
 | `--text <color>` | Text color | `#FFFFFF` |
