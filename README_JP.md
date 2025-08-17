@@ -2,6 +2,11 @@
 
 日本の都道府県のアイコン画像を、公式の政府データを使用して生成するツールです。国土地理院などの公式ソースから最新の境界データを自動的にダウンロードし、高品質なPNGアイコンを作成できます。
 
+[![npm version](https://badge.fury.io/js/jp-pref-icons.svg)](https://www.npmjs.com/package/jp-pref-icons)
+[![GitHub Release](https://img.shields.io/github/v/release/champierre/jp-pref-icons)](https://github.com/champierre/jp-pref-icons/releases)
+
+📋 **[リリースノート](https://github.com/champierre/jp-pref-icons/releases)** | 🌐 **[English](README.md)**
+
 ## 特徴
 
 - 🗾 **公式データ**: 国土地理院のデータに基づく都道府県境界の自動ダウンロード

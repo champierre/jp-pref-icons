@@ -2,7 +2,10 @@
 
 Generate beautiful icon images for Japanese prefectures with official government data. This tool automatically downloads the latest boundary data from official sources and creates high-quality PNG icons with optional SVG output.
 
-> 📖 **日本語ドキュメント**: [README_JP.md](README_JP.md)
+[![npm version](https://badge.fury.io/js/jp-pref-icons.svg)](https://www.npmjs.com/package/jp-pref-icons)
+[![GitHub Release](https://img.shields.io/github/v/release/champierre/jp-pref-icons)](https://github.com/champierre/jp-pref-icons/releases)
+
+> 📖 **日本語ドキュメント**: [README_JP.md](README_JP.md) | 📋 **[Release Notes](https://github.com/champierre/jp-pref-icons/releases)**
 
 ## Features
 
