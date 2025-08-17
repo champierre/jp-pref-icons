@@ -1,0 +1,41 @@
+{
+  "name": "japan-prefecture-icons",
+  "version": "1.0.0",
+  "description": "Generate beautiful icon images for Japanese prefectures with official government data",
+  "main": "src/index.js",
+  "bin": {
+    "japan-prefecture-icons": "./bin/cli.js"
+  },
+  "scripts": {
+    "test": "node test/test.js"
+  },
+  "keywords": [
+    "japan",
+    "prefecture",
+    "icons",
+    "geojson",
+    "map",
+    "svg",
+    "png",
+    "cli",
+    "boundary",
+    "administrative"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/champierre/japan-prefecture-icons.git"
+  },
+  "homepage": "https://github.com/champierre/japan-prefecture-icons#readme",
+  "author": "champierre",
+  "license": "MIT",
+  "dependencies": {
+    "@turf/turf": "^6.5.0",
+    "canvas": "^2.11.2",
+    "commander": "^11.0.0",
+    "fs-extra": "^11.1.1",
+    "puppeteer": "^24.16.2"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
