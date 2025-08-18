@@ -4,6 +4,7 @@ const { program } = require('commander');
 const PrefectureIconGenerator = require('../src/index');
 const path = require('path');
 const fs = require('fs-extra');
+const readline = require('readline');
 
 program
   .name('jp-pref-icons')
@@ -20,9 +21,24 @@ program
   .option('--svg', 'Also generate SVG files')
   .option('--prefecture <names>', 'Generate only specified prefectures (comma-separated names or codes)')
   .option('--hide-text', 'Generate icons without prefecture name text')
+  .option('-y, --yes', 'Skip confirmation prompts')
   .parse(process.argv);
 
 const options = program.opts();
+
+async function askUserConfirmation(question) {
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+  });
+
+  return new Promise((resolve) => {
+    rl.question(question, (answer) => {
+      rl.close();
+      resolve(answer.toLowerCase().trim() === 'y' || answer.toLowerCase().trim() === 'yes');
+    });
+  });
+}
 
 async function main() {
   try {
@@ -36,6 +52,20 @@ async function main() {
       if (!await fs.pathExists(geoJsonPath)) {
         console.error(`Error: GeoJSON file not found: ${geoJsonPath}`);
         process.exit(1);
+      }
+    }
+
+    // Check if output directory needs to be created and ask for confirmation
+    const outputDir = path.resolve(options.out);
+    const isDefaultOutput = options.out === path.join(process.cwd(), 'icons');
+    
+    if (isDefaultOutput && !await fs.pathExists(outputDir) && !options.yes) {
+      console.log(`Output directory: ${outputDir}`);
+      const confirmed = await askUserConfirmation('This will create an "icons" folder in the current directory. Continue? (y/N): ');
+      
+      if (!confirmed) {
+        console.log('Operation cancelled.');
+        process.exit(0);
       }
     }
 
