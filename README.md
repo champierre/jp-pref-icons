@@ -203,7 +203,7 @@ Icons are saved with the following naming convention:
 
 The tool automatically downloads Japanese prefecture boundary data from:
 
-- [`dataofjapan/land`](https://github.com/dataofjapan/land) repository (based on 国土地理院 地球地図日本 http://www.gsi.go.jp/kankyochiri/gm_jpn.html data)
+- [`dataofjapan/land`](https://github.com/dataofjapan/land) repository - japan.geojson (converted from Shapefile published on 国土地理院 地球地図日本 http://www.gsi.go.jp/kankyochiri/gm_jpn.html )
 
 Data is processed in memory without local caching, ensuring always up-to-date boundary information.
 
@@ -265,4 +265,6 @@ MIT
 
 ## Credits
 
-Built with Japanese prefecture boundary data from 国土地理院 地球地図日本 (Global Map Japan) http://www.gsi.go.jp/kankyochiri/gm_jpn.html.
+Built with Japanese prefecture boundary data from:
+- [`dataofjapan/land`](https://github.com/dataofjapan/land) repository - japan.geojson
+- Based on Shapefile from: 国土地理院 地球地図日本 (Global Map Japan) http://www.gsi.go.jp/kankyochiri/gm_jpn.html
